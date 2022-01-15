@@ -100,7 +100,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Generating the footer for the cover letter 
 \newcommand*{\footboxCoverLetter}{% 
-	\hspace{2.75cm}
+	\hfil
 	\begin{minipage}[t]{0.6\linewidth}
 		\centering
 		\begin{tabular}{c}
@@ -114,19 +114,17 @@
 
 % Generating the footer for the CV pages
 \newcommand*{\footboxCVPages}{% 
-	\hspace{2.75cm}
 	\begin{minipage}[t]{0.6\linewidth}
 		\centering
-		\begin{tabular}{cr}
-			\small \color{gray}\textbf{\usekomavar{fromname}} & \\%[0.5mm]
-			\small\color{gray} \usekomavar{fromstreet}~\textbullet~\usekomavar{frompostalcode}~\usekomavar{fromcity}~\textbullet~\usekomavar{fromcountry} & \\[-0.75mm]
+		\begin{tabular}{c}
+			\small \color{gray}\textbf{\usekomavar{fromname}} \\%[0.5mm]
+			\small\color{gray} \usekomavar{fromstreet}~\textbullet~\usekomavar{frompostalcode}~\usekomavar{fromcity}~\textbullet~\usekomavar{fromcountry} \\[-0.75mm]
 			\small\color{gray}\raisebox{-0.075em}{\faEnvelope}~\,\usekomavar{fromemail}\quad\textbullet~
-			\raisebox{-0.625em}{\tikz{\draw (0,0) node[rotate=270] {\faPhone};}}\usekomavar{fromphone} & \small \hspace{2cm}
-			\color{gray}
-			Page \thepage\ of \pageref{EndOfCV}
+			\raisebox{-0.625em}{\tikz{\draw (0,0) node[rotate=270] {\faPhone};}}\usekomavar{fromphone} %& \small \hspace{2cm}
+%			\color{gray}
+%			Page \thepage\ of \pageref{EndOfCV}
 		\end{tabular}
 	\end{minipage}
-	\hfil
 }
 
 \setkomavar{firstfoot}{\footboxCoverLetter} % set the first footer to the footer for cover letter
@@ -165,6 +163,7 @@ addvoffset=-1ex
 		\color{gray}\usekomavar{curriculumtitle}
 	}%
 	\cfoot*{\footboxCVPages}%
+	\ofoot*{\raggedleft\small\color{gray}Page \thepage\ of \pageref{EndOfCV}}
 }
 
 % setting the correct page style

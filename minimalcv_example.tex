@@ -1,0 +1,88 @@
+% !TeX program = lualatex
+
+\documentclass{minimalcv}
+
+% Setting styles
+\KOMAoption{fontsize}{11pt} 
+\usepackage[english]{babel} 
+
+
+% Setting user data
+\setkomavar{fromfirstname}{John}
+\setkomavar{fromlastname}{Doe}
+\setkomavar{fromstreet}{Deserted Lane 1}
+\setkomavar{frompostalcode}{6789}
+\setkomavar{fromcity}{Ghost Town}
+\setkomavar{fromcountry}{Ghostly Realms}
+\setkomavar{fromphone}{+1 2345/6789}
+\setkomavar{fromemail}{john.doe@ghostly.realms}
+
+\setkomavar{signature}{\includegraphics[height=1cm]{./example-images/john-doe_signature}\\ \usekomavar{fromname}}
+
+\setkomavar{receiver}{%
+	Joana Public\\ 
+	Hillside 1\\ 
+	12345 Public-City\\
+	World
+}
+
+\usepackage{lipsum}
+
+\begin{document} 
+	\begin{coverLetter} 
+		\subject{Initiative application for a position as a crypto currency miner}
+		\opening{Dear Sir or Madame,} 
+		
+		after reading your job offering in the Ghostly News, I am convinced that I am a good fit for the position due to my more than 100 years of experience in the mining business. When can I start?\\[0.5cm]
+		Thank you very much for your efforts!
+		\closing{Yours sincerely,}  
+		
+		\enclosure{
+			\vspace{-0.5cm}
+			\begin{itemize}
+				\setlength{\itemsep}{0.5pt}
+				\item Curriculum vit\ae{} (\pageref{EndOfCV} pages), % automatically sets it to the last page of CV
+				\item Bachelor certificate (5 pages),
+				\item Master certificate (4 pages),
+			\end{itemize}
+		}
+	\end{coverLetter}
+
+	
+	\begin{vitae}
+		\begin{quote}
+			\centering
+			\color{accentcolor}
+			I say what I think and do not think about what I say.\\
+			\small \textcolor{gray}{John Doe, 1863\,-\,1893, adventurer}
+		\end{quote}
+	
+		\cvsection{Personal data}
+			\vspace{-0.25cm}
+			\begin{personalimage}[0.8\linewidth]{./example-images/john-doe_ghostly-picture}
+				\cvitem{name}{John Doe}
+				\cvitem{address}{\usekomavar{fromstreet},~\usekomavar{frompostalcode}~\usekomavar{fromcity},\\\usekomavar{fromcountry}}
+				\cvitem{date of birth}{January 15, 1893}
+				\cvitem{place of birth}{Ghost Town, Ghostly Realms}
+				\cvitem{nationality}{Ghost}
+			\end{personalimage}
+		
+		\vspace{-0.925cm}
+		\cvsection{Education}
+			\cventry{1903}{Elementary Education}{Elementary School}{Ghost Town, Ghostly Realms}{grade: A+}{Best student of the year}  % arguments 3 to 6 can be left empty
+			\cventry{1903\,-\,1906}{B.Sc. Mineralogy}{Mineral College}{Ghost Town, Ghostly Realms}{grade: A-}{Studying the minerals of the earth and mining techniques}  % arguments 3 to 6 can be left empty
+			\cventry{1906\,-\,1908}{M.Sc. Horror}{Ghost College}{Ghost Town, Ghostly Realms}{grade: B+}{Specialized in scaring people in mines}  % arguments 3 to 6 can be left empty
+			
+		\cvsection{Languages}
+			\cvitem{Ghost}{first language}
+			\cvitem{English}{first foreign language}
+		
+		\cvsection{Informatics knowledge}
+			\cvitem{typing}{Ghostwriter of the year 1910}
+			
+		\cvclosing
+		\vfill
+		\centering
+		ghost image by arcdroid, uploaded to OpenClipart: \url{https://openclipart.org/detail/164221/ghost}
+	\end{vitae}
+\end{document}

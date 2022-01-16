@@ -213,8 +213,8 @@ addvoffset=-1ex
 	\renewcommand{\envMacroArgumentHelperTwo}{#2}
 	% Reset the column type such that the left of the first "column" hopefully 
 	% aligns with the rest of the columns in the documents; lies here the bug?
-	\forcenewcolumntype{A}{>{\hsize=0.33\linewidth \raggedleft}X}
-	\forcenewcolumntype{Z}{>{\raggedright\arraybackslash}p{0.66\linewidth}}
+	\forcenewcolumntype{A}{>{\hsize=0.2675\linewidth \raggedleft}X}
+	\forcenewcolumntype{Z}{>{\raggedright\arraybackslash}p{0.7375\linewidth}}
 	\begin{minipage}[b]{0.75\linewidth}
 		\vfil
 	}{ % minipage for the CV content
@@ -223,6 +223,7 @@ addvoffset=-1ex
 	\hfill
 	% Minipage for the image with filepath and options loaded from helper macros
 	\begin{minipage}[b]{0.25\linewidth}
+		\centering
 		\includegraphics[width=\envMacroArgumentHelper]{\envMacroArgumentHelperTwo}
 	\end{minipage}
 	% "reset" the column types back to the old value

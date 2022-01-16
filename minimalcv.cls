@@ -333,6 +333,11 @@ addvoffset=-1ex
 % Setting standard KOMAvars to new value
 \setkomavar{fromaddress}{\usekomavar{fromstreet}\\\usekomavar{frompostalcode}~\usekomavar{fromcity}\\\usekomavar{fromcountry}}
 \setkomavar{fromname}{\usekomavar{fromfirstname}~\usekomavar{fromlastname}}
+\setkomavar{firsthead}{%
+	\usekomavar{fromfirstname}~\usekomavar{fromlastname}\\
+	\usekomavar{fromaddress}%
+}
+
 
 % Set new KOMAvars to initial values
 \setkomavar{enclosurename}{Enclosure}

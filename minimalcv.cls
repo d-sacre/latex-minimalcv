@@ -38,7 +38,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Setting up the page. Currently no easy way for end user except here or via \geometry{} in preamble of document
-\RequirePackage[scale=0.775,top=1.5cm, bottom=1.5cm, includeheadfoot]{geometry}
+\RequirePackage[scale=0.775,top=1.5cm, bottom=1.5cm, footskip=3em, includeheadfoot]{geometry}
 
 \RequirePackage{fontspec} % required for LuaLaTeX and ability to select random fonts
 

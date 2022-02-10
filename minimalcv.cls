@@ -3,7 +3,7 @@
 %% start of file `minimalcv.cls'.                                    %%
 %%                                                                   %%
 %% IMPORTANT: REQUIRES LUALATEX FOR COMPILATION                      %%
-%% class version: 2022-01-15-alpha                                   %%
+%% class version: 2022-02-10-alpha                                   %%
 %%                                                                   %%
 %% Copyright 2022 Daniel Sacré.                                      %%
 %%                                                                   %%    
@@ -38,7 +38,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Setting up the page. Currently no easy way for end user except here or via \geometry{} in preamble of document
-\RequirePackage[scale=0.775,top=1.5cm, bottom=1.5cm, footskip=3em, includeheadfoot]{geometry}
+\RequirePackage[scale=0.775,top=1.5cm, bottom=1.675cm, footskip=3em, includeheadfoot]{geometry}
 
 \RequirePackage{fontspec} % required for LuaLaTeX and ability to select random fonts
 
@@ -106,7 +106,8 @@
 		\begin{tabular}{c}
 			\small\color{gray}\textbf{\usekomavar{fromname}} \\%[0.75mm]
 			\small\color{gray} \usekomavar{fromstreet}~\textbullet~\usekomavar{frompostalcode}~\usekomavar{fromcity}~\textbullet~\usekomavar{fromcountry} \\[-0.75mm]
-			\small\color{gray}\raisebox{-0.075em}{\faEnvelope}~\,\usekomavar{fromemail}\quad\textbullet~\raisebox{-0.625em}{\tikz{\draw (0,0) node[rotate=270] {\faPhone};}}\usekomavar{fromphone} 
+			\small\color{gray}\raisebox{-0.075em}{\faEnvelope}~\,\usekomavar{fromemail}\quad\textbullet~\raisebox{-0.625em}{\tikz{\draw (0,0) node[rotate=270] {\faPhone};}}\usekomavar{fromphone}
+			\Ifkomavarempty{fromurl}{}{\\[-0.75mm]\small\color{gray}\faGlobe~\usekomavar{fromurl}}
 		\end{tabular}
 	\end{minipage}
 	\hfil
@@ -123,6 +124,7 @@
 			\raisebox{-0.625em}{\tikz{\draw (0,0) node[rotate=270] {\faPhone};}}\usekomavar{fromphone} %& \small \hspace{2cm}
 %			\color{gray}
 %			Page \thepage\ of \pageref{EndOfCV}
+			\Ifkomavarempty{fromurl}{}{\\[-0.75mm]\small\color{gray}\faGlobe~\usekomavar{fromurl}}
 		\end{tabular}
 	\end{minipage}
 }

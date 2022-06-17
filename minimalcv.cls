@@ -3,7 +3,7 @@
 %% start of file `minimalcv.cls'.                                    %%
 %%                                                                   %%
 %% IMPORTANT: REQUIRES LUALATEX FOR COMPILATION                      %%
-%% class version: 2022-02-10-alpha                                   %%
+%% class version: 2022-06-17-alpha                                   %%
 %%                                                                   %%
 %% Copyright 2022 Daniel Sacré.                                      %%
 %%                                                                   %%    
@@ -77,7 +77,8 @@
 
 % Put usepackages which are known to disturb others at the end of preamble
 \AtEndPreamble{%
-	\RequirePackage{url}
+	\RequirePackage{url} % allowing for working web links
+	\urlstyle{same} % changing url font to match the rest of the sf text
 	\RequirePackage[hidelinks]{hyperref}
 	%
 	% hypersetup adopted from Xavier Danaux's moderncv class; license LPPL 1.3c
@@ -98,6 +99,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%% Setting up the page footers and headers %%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
 %Generating the footer for the cover letter 
 \newcommand*{\footboxCoverLetter}{% 
 	\hfil
@@ -106,8 +110,17 @@
 		\begin{tabular}{c}
 			\small\color{gray}\textbf{\usekomavar{fromname}} \\%[0.75mm]
 			\small\color{gray} \usekomavar{fromstreet}~\textbullet~\usekomavar{frompostalcode}~\usekomavar{fromcity}~\textbullet~\usekomavar{fromcountry} \\[-0.75mm]
-			\small\color{gray}\raisebox{-0.075em}{\faEnvelope}~\,\usekomavar{fromemail}\quad\textbullet~\raisebox{-0.625em}{\tikz{\draw (0,0) node[rotate=270] {\faPhone};}}\usekomavar{fromphone}
-			\Ifkomavarempty{fromurl}{}{\\[-0.75mm]\small\color{gray}\faGlobe~\usekomavar{fromurl}}
+			\small\color{gray}\raisebox{-0.075em}{%
+				\faEnvelope %
+			}~\,\usekomavar{fromemail}\quad\textbullet~
+				\raisebox{-0.625em}{%
+					\tikz{\draw (0,0) node[rotate=270] {\faPhone};
+				}%
+			}\usekomavar{fromphone}
+			\Ifkomavarempty{fromurl}{}{%
+				\\[-0.75mm]\small\color{gray}\faGlobe~
+				\usekomavar[\url]{fromurl} % to get a working url in footer
+			}
 		\end{tabular}
 	\end{minipage}
 	\hfil
@@ -121,10 +134,12 @@
 			\small \color{gray}\textbf{\usekomavar{fromname}} \\%[0.5mm]
 			\small\color{gray} \usekomavar{fromstreet}~\textbullet~\usekomavar{frompostalcode}~\usekomavar{fromcity}~\textbullet~\usekomavar{fromcountry} \\[-0.75mm]
 			\small\color{gray}\raisebox{-0.075em}{\faEnvelope}~\,\usekomavar{fromemail}\quad\textbullet~
-			\raisebox{-0.625em}{\tikz{\draw (0,0) node[rotate=270] {\faPhone};}}\usekomavar{fromphone} %& \small \hspace{2cm}
-%			\color{gray}
-%			Page \thepage\ of \pageref{EndOfCV}
-			\Ifkomavarempty{fromurl}{}{\\[-0.75mm]\small\color{gray}\faGlobe~\usekomavar{fromurl}}
+			\raisebox{-0.625em}{%
+				\tikz{\draw (0,0) node[rotate=270] {\faPhone};}
+			}\usekomavar{fromphone} 
+			\Ifkomavarempty{fromurl}{}{%
+				\\[-0.75mm]\small\color{gray}\faGlobe~	\usekomavar[\url]{fromurl}
+			}
 		\end{tabular}
 	\end{minipage}
 }
